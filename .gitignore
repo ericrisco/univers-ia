@@ -1,0 +1,9 @@
+.env
+__pycache__
+*.log
+*.log*
+app/applications.json
+*.wav
+*.mp3
+!welcome.mp3
+!back.mp3

@@ -1,0 +1,12 @@
+fastapi
+dotenv
+uvicorn
+openai
+pygelf
+python-multipart
+uvicorn[standard]
+soundfile==0.12.1
+pydub==0.25.1
+SpeechRecognition==3.8.1
+numpy
+gtts
