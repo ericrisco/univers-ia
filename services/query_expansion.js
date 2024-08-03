@@ -1,5 +1,6 @@
-import { readSystemPrompt } from '../helpers/read_system_prompts';
-import { route } from '../ai/router';
+import { readSystemPrompt } from '../helpers/read_system_prompts.js';
+import { route } from '../ai/router.js';
+import { getUserMemories } from './memory.js';
 
 const MODEL = 'openai';
 const VERSION = 'gpt-4o-mini';
@@ -13,10 +14,10 @@ export async function query_expansion(user_id, prompt, retries = 0) {
 		const system_prompt = await readSystemPrompt('query_expansion.txt');
 
 		let messages = [];
-		let memories = []; //TODO: Get memories from database
+		let memories = await getUserMemories(user_id);
 
 		for (let i = 0; i < memories.length; i++) {
-			let message = `${i + 1}. [User]: ${memories[i].message}`;
+			let message = `${i + 1}. [User]: ${memories[i]}`;
 			messages.push(message);
 		}
 

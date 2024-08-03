@@ -2,7 +2,7 @@ import { OpenAIEmbeddings } from '@langchain/openai';
 import { MongoDBAtlasVectorSearch } from '@langchain/mongodb';
 import { MongoClient } from 'mongodb';
 
-export async function query(input) {
+export async function document_query(input) {
 	let dbUrl = process.env.MONGODB_URI;
 	dbUrl = dbUrl.replace('<username>', process.env.MONGODB_USERNAME).replace('<password>', process.env.MONGODB_PASSWORD);
 
