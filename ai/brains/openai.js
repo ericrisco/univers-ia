@@ -1,3 +1,5 @@
+import BrainResponse from '../../models/brain_response.js';
+
 export async function openai_completion(brainRequest) {
 	try {
 		console.info(`OpenAI Request received: ${JSON.stringify(brainRequest)}`);
@@ -9,13 +11,13 @@ export async function openai_completion(brainRequest) {
 			messages: [{ role: 'system', content: 'You are a helpful assistant.' }]
 		});
 
-		console.log(completion.choices[0]);
-
 		console.info(`OpenAI Request response: ${JSON.stringify(brainRequest)}`);
+
+		chatResponse = completion.choices[0].message.content;
 
 		return new BrainResponse(brainRequest.user_id, chatResponse);
 	} catch (error) {
-		console.error(`Brain Route Error: ${error}`);
+		console.error(`OpenAI Request Error: ${error}`);
 		throw error;
 	}
 }

@@ -5,4 +5,4 @@ class BrainResponse {
 	}
 }
 
-module.exports = BrainResponse;
+export default BrainResponse;

@@ -23,4 +23,4 @@ class BrainRequest {
 	}
 }
 
-module.exports = { BrainRequest, PromptMessage, PromptType };
+export default BrainRequest;
